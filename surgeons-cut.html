@@ -150,22 +150,18 @@
       display: none;
     }
 
-    section.collapsible::after {
-      content: '';
-    }
-
-    section.collapsible > h2::after {
-      content: '▼';
-      font-size: 0.8em;
-      margin-left: 8px;
-      color: #666;
-    }
-
-    section.collapsible.collapsed > h2::after {
-      content: '►';
-    }
-
     @media (max-width: 768px) {
+      section.collapsible > h2::after {
+        content: '▼';
+        font-size: 0.8em;
+        margin-left: 8px;
+        color: #666;
+      }
+
+      section.collapsible.collapsed > h2::after {
+        content: '►';
+      }
+
       #content-wrapper {
         grid-template-columns: 1fr;
       }
