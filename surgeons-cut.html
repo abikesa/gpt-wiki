@@ -31,16 +31,10 @@
 
     nav#toc {
       font-size: 0.9em;
-      background: #f8f9fa;
-      padding: 1em;
-      border: 1px solid #a2a9b1;
     }
 
     aside#settings-bar {
       font-size: 0.9em;
-      background: #f8f9fa;
-      padding: 1em;
-      border: 1px solid #a2a9b1;
       height: fit-content;
     }
 
@@ -93,11 +87,13 @@
     #infobox {
       float: right;
       margin: 1em;
-      border: 1px solid #ccc;
-      padding: 0.5em;
+      border: 1px solid #a2a9b1;
+      padding: 0.75em;
       background: #f8f9fa;
       font-size: 0.9em;
       width: 250px;
+      border-radius: 6px;
+      box-shadow: 1px 1px 2px rgba(0,0,0,0.05);
     }
 
     #infobox img {
@@ -105,7 +101,7 @@
       height: auto;
       display: block;
       margin-bottom: 8px;
-      border-radius: 8px;
+      border-radius: 4px;
     }
 
     .infobox caption {
@@ -114,15 +110,29 @@
       margin-bottom: 0.5em;
     }
 
+    .image-placeholder {
+      border: 1px solid #a2a9b1;
+      background: #f8f9fa;
+      padding: 0.5em;
+      margin: 1em 0;
+      float: right;
+      width: 250px;
+      font-size: 0.9em;
+      border-radius: 8px;
+      box-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+    }
+
     .image-placeholder img {
       width: 100%;
-      border-radius: 8px;
+      border-radius: 4px;
       margin-bottom: 5px;
     }
 
     .image-placeholder p {
       font-size: 0.9em;
       text-align: center;
+      font-style: italic;
+      color: #555;
     }
 
     @media (max-width: 768px) {
@@ -185,6 +195,11 @@
 
       <h2 id="surgeon">The Surgeon’s Epistemic Pivot</h2>
       <p>The scalpel is not a symbol. It is the sentence...</p>
+
+      <div class="image-placeholder">
+        <img src="https://abikesa.github.io/images/scalpel.jpg" alt="Scalpel Image" />
+        <p>Precision as judgment</p>
+      </div>
 
       <h2 id="critique">Critique</h2>
       <h3>User's Contribution</h3>
