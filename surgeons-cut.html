@@ -135,6 +135,36 @@
       color: #555;
     }
 
+    section.collapsible > h2 {
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    section.collapsible .content {
+      display: block;
+    }
+
+    section.collapsible.collapsed .content {
+      display: none;
+    }
+
+    section.collapsible::after {
+      content: '';
+    }
+
+    section.collapsible > h2::after {
+      content: '▼';
+      font-size: 0.8em;
+      margin-left: 8px;
+      color: #666;
+    }
+
+    section.collapsible.collapsed > h2::after {
+      content: '►';
+    }
+
     @media (max-width: 768px) {
       #content-wrapper {
         grid-template-columns: 1fr;
@@ -190,25 +220,40 @@
       </div>
       <p>The surgeon embodies the tension between repair and rupture...</p>
 
-      <h2 id="glyphic">The Glyphic Cycle</h2>
-      <p><span class="glyph">🌊</span> <span class="glyph">🚢</span> <span class="glyph">🪛🏴‍☠️</span> <span class="glyph">🦈✂️🛟</span> <span class="glyph">🏝️</span></p>
+      <section class="collapsible" id="glyphic-section">
+        <h2 id="glyphic">The Glyphic Cycle</h2>
+        <div class="content">
+          <p><span class="glyph">🌊</span> <span class="glyph">🚢</span> <span class="glyph">🪛🏴‍☠️</span> <span class="glyph">🦈✂️🛟</span> <span class="glyph">🏝️</span></p>
+        </div>
+      </section>
 
-      <h2 id="surgeon">The Surgeon’s Epistemic Pivot</h2>
-      <p>The scalpel is not a symbol. It is the sentence...</p>
+      <section class="collapsible" id="surgeon-section">
+        <h2 id="surgeon">The Surgeon’s Epistemic Pivot</h2>
+        <div class="content">
+          <p>The scalpel is not a symbol. It is the sentence...</p>
+          <div class="image-placeholder">
+            <img src="https://abikesa.github.io/images/scalpel.jpg" alt="Scalpel Image" />
+            <p>Precision as judgment</p>
+          </div>
+        </div>
+      </section>
 
-      <div class="image-placeholder">
-        <img src="https://abikesa.github.io/images/scalpel.jpg" alt="Scalpel Image" />
-        <p>Precision as judgment</p>
-      </div>
+      <section class="collapsible" id="critique-section">
+        <h2 id="critique">Critique</h2>
+        <div class="content">
+          <h3>User's Contribution</h3>
+          <p>Minimal, symbolic. But potent.</p>
+          <h3>GPT-4o's Response</h3>
+          <p>Precise. But did it overclaim?</p>
+        </div>
+      </section>
 
-      <h2 id="critique">Critique</h2>
-      <h3>User's Contribution</h3>
-      <p>Minimal, symbolic. But potent.</p>
-      <h3>GPT-4o's Response</h3>
-      <p>Precise. But did it overclaim?</p>
-
-      <h2 id="architecture">Epistemic Architecture</h2>
-      <p>Recursive structure guiding Ukubona grammar.</p>
+      <section class="collapsible" id="architecture-section">
+        <h2 id="architecture">Epistemic Architecture</h2>
+        <div class="content">
+          <p>Recursive structure guiding Ukubona grammar.</p>
+        </div>
+      </section>
     </main>
 
     <aside id="settings-bar">
@@ -223,5 +268,19 @@
   <footer>
     <p>Last updated: May 2025 | Powered by Ukubona Wiki</p>
   </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      if (window.innerWidth <= 768) {
+        document.querySelectorAll("section.collapsible").forEach(section => {
+          section.classList.add("collapsed");
+          const header = section.querySelector("h2");
+          header.addEventListener("click", () => {
+            section.classList.toggle("collapsed");
+          });
+        });
+      }
+    });
+  </script>
 </body>
 </html>
